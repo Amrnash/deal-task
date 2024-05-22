@@ -7,7 +7,7 @@ const propertySchema = new mongoose.Schema({
     required: true,
   },
   area: {
-    type: Number,
+    type: String,
     required: true,
   },
   price: {

@@ -10,7 +10,7 @@ const authMiddleware = async (req, res, next) => {
 
   try {
     const token = authHeader?.split(" ")[1] || "";
-    const secretKey = process.env.SECRET_KEY;
+    const secretKey = process.env.JWT_SECRET;
     const decodedToken = jwt.verify(token, secretKey);
     req.user = decodedToken;
     next();

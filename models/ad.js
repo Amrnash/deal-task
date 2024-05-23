@@ -7,7 +7,7 @@ const AdSchema = new mongoose.Schema({
     required: true,
   },
   area: {
-    type: Number,
+    type: String,
     required: true,
   },
   price: {
@@ -37,4 +37,4 @@ const AdSchema = new mongoose.Schema({
   },
 });
 
-export const Ad = mongoose.model("Property", AdSchema);
+export const Ad = mongoose.model("Ad", AdSchema);

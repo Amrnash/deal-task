@@ -2,6 +2,7 @@ import express from "express";
 import { properyRouter } from "./routes/properties.js";
 import { usersRouter } from "./routes/users.js";
 import { adsRouter } from "./routes/ads.js";
+import { statsRouter } from "./routes/stats.js";
 
 const app = express();
 
@@ -9,6 +10,8 @@ app.use(express.json());
 app.use("/property", properyRouter);
 app.use("/users", usersRouter);
 app.use("/ads", adsRouter);
+app.use("/stats", statsRouter);
+
 app.use((err, req, res, next) => {
   const status = err.status ?? 500;
   const errorResponse = {

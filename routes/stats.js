@@ -6,6 +6,43 @@ import { Property } from "../models/property.js";
 import { Router } from "express";
 
 const router = Router();
+
+/**
+ * @swagger
+ *
+ * /stats/{userId}:
+ *   get:
+ *     summary: Get stats of a user
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                 phone:
+ *                   type: string
+ *                 role:
+ *                   type: string
+ *                 status:
+ *                   type: string
+ *                 numberOfRequestsOrAds:
+ *                   type: number
+ *                 totalAmountOfRequestsOrAds:
+ *                   type: number
+ */
+
 router.get(
   "/:userId",
   authMiddleware,
@@ -40,6 +77,7 @@ router.get(
 
       const userData = user.toObject();
       delete userData.password;
+      delete userData._id;
 
       const response = {
         ...userData,

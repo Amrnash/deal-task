@@ -6,6 +6,65 @@ import { createrError } from "../utils/createError.js";
 
 const router = Router();
 
+/**
+ * @swagger
+ * /property:
+ *   post:
+ *     summary: Creates a property request
+ *     security:
+ *       - Authorization: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               propertyType:
+ *                 type: string
+ *                 example: "Apartment"
+ *               area:
+ *                 type: string
+ *                 example: "1200 sqft"
+ *               price:
+ *                 type: number
+ *                 example: 250000
+ *               city:
+ *                 type: string
+ *                 example: "New York"
+ *               district:
+ *                 type: string
+ *                 example: "Manhattan"
+ *               description:
+ *                 type: string
+ *                 example: "A beautiful apartment in the heart of the city."
+ *     responses:
+ *       200:
+ *         description: Request created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 propertyType:
+ *                   type: string
+ *                   example: "Apartment"
+ *                 area:
+ *                   type: string
+ *                   example: "1200 sqft"
+ *                 price:
+ *                   type: number
+ *                   example: 250000
+ *                 city:
+ *                   type: string
+ *                   example: "New York"
+ *                 district:
+ *                   type: string
+ *                   example: "Manhattan"
+ *                 description:
+ *                   type: string
+ *                   example: "A beautiful apartment in the heart of the city."
+ */
 router.post(
   "/",
   authMiddleware,

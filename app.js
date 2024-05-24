@@ -3,6 +3,8 @@ import { properyRouter } from "./routes/properties.js";
 import { usersRouter } from "./routes/users.js";
 import { adsRouter } from "./routes/ads.js";
 import { statsRouter } from "./routes/stats.js";
+import { specs } from "./swaggerConfig.js";
+import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
@@ -11,6 +13,7 @@ app.use("/property", properyRouter);
 app.use("/users", usersRouter);
 app.use("/ads", adsRouter);
 app.use("/stats", statsRouter);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use((err, req, res, next) => {
   const status = err.status ?? 500;

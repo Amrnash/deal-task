@@ -3,7 +3,9 @@ import { faker } from "@faker-js/faker";
 import { User } from "../models/user.js";
 import { Ad } from "../models/ad.js";
 import { Property } from "../models/property.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 async function seedDB() {
   try {
     await mongoose.connect(process.env.MONGO_DB);
